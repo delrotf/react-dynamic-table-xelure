@@ -1,22 +1,22 @@
 import React, { useState } from "react";
 
 export const AppContext = React.createContext({
-  firstname: 0,
-  setFirstname: null,
-  lastname: 0,
-  setLastname: null
+  rowCount: 0,
+  setRowCount: null,
+  columnCount: 0,
+  setColumnCount: null
 });
 
 const AppContextProvider = props => {
-  const [firstname, setFirstname] = useState(0);
-  const [lastname, setLastname] = useState(0);
+  const [rowCount, setRowCount] = useState(0);
+  const [columnCount, setColumnCount] = useState(0);
   return (
     <AppContext.Provider
       value={{
-        firstname,
-        setFirstname,
-        lastname,
-        setLastname
+        rowCount,
+        setRowCount,
+        columnCount,
+        setColumnCount
       }}
     >
       {props.children}
