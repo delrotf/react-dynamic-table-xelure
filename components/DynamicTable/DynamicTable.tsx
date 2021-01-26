@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { Table } from "react-bootstrap";
 import { AppContext } from "../../context";
 import { FancyCells } from "../FancyCells/FancyCells";
 import { SimpleTable } from "../SimpleTable/SimpleTable";

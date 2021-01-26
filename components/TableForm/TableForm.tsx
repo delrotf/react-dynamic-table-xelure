@@ -14,8 +14,17 @@ const TableForm = props => {
   };
 
   const validationSchema = Yup.object({
-    rowCount: Yup.number().required("This field is required.").positive("Must be positive").integer("No Decimal").max(8, "Max of ${max}"),
-    columnCount: Yup.number().required("This field is required.").positive("Must be positive").integer("No Decimal").max(8, "Max of ${max}"),
+    rowCount: Yup.number()
+    .required("Rows field is required.")
+    .integer("No Decimal")
+    .min(1, "Please enter a number between ${min}-9")
+    .max(9, "Please enter a number between 1-${max}"),
+
+    columnCount: Yup.number()
+    .required("Columns field is required.")
+    .integer("No Decimal")
+    .min(1, "Please enter a number between ${min}-9")
+    .max(9, "Please enter a number between 1-${max}"),
   });
 
   const onSubmit = values => {
@@ -39,21 +48,19 @@ const TableForm = props => {
                   controlId="rowCount"
                   name="rowCount"
                   type="number"
-                  label="Row"
-                  hint="Count of rows"
+                  hint="Rows"
                 />
                 <Input
                   controlId="columnCount"
                   name="columnCount"
                   type="number"
-                  label="Column"
-                  hint="Count of columns"
+                  hint="Columns"
                 />
               </BsForm.Row>
             </div>
-            <div className="d-flex p-3">
-              <Button variant="primary" className="flex-fill" type="submit">
-                Create
+            <div className="d-flex justify-content-center p-3">
+              <Button variant="primary" type="submit">
+                Create table
               </Button>
             </div>
           </Form>
